@@ -13,17 +13,8 @@
 </head>
 
 <body>
-    <div class="nav-bar"></div>
-    <h1>Relecloud Galaxy Tours</h1>
-
-    <!-- TODO: Add information display -->
-    <div id="app">
-        <h2>{{productName}}</h2>
-        <div>{{productDescription}}</div>
-        <img :src="productImage" :alt="productImageDescription" :style="productImageStyle"/>
-    </div>
-    
     <div v-for="(productClass, index) in productClasses" :key="index" class="row">
+        <!-- used for  -->
         <div class="column">
             {{productClass.name}}
         </div>
@@ -31,8 +22,6 @@
             ${{productClass.price.toLocaleString('en-US')}}            
         </div>
     </div>
-
-    <!-- TODO: Import Vue app -->
     <script>
         app.mount('#app');
     </script>
