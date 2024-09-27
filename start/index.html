@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="./assets/styles.css" />
     <!-- TODO: Import Vue.js core library -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./index.js"></script>
-
 
 </head>
 
@@ -22,6 +20,8 @@
         <div>{{productDescription}}</div>
         <img :src="productImage" :alt="productImageDescription" :style="productImageStyle"/>
     </div>
+
+    <hr/>
     
     <div v-for="(productClass, index) in productClasses" :key="index" class="row">
         <div class="column">
@@ -33,6 +33,7 @@
     </div>
 
     <!-- TODO: Import Vue app -->
+    <script src="./index.js"></script>
     <script>
         app.mount('#app');
     </script>
