@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./assets/styles.css" />
     <!-- TODO: Import Vue.js core library -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+   <script src="./index.js"></script>
 
 </head>
 
@@ -16,24 +17,25 @@
 
     <!-- TODO: Add information display -->
     <div id="app">
+        <!-- YOU CAN ONLY INTERACT WITH VUE IN THE DIV WITH ID app -->
         <h2>{{productName}}</h2>
         <div>{{productDescription}}</div>
+
+        <hr/>
+
+        <div v-for="(productClass, index) of productClasses" :key="index" class="row">
+            <div class="column">
+                {{productClass.name}}
+            </div>
+            <div class="column">
+                ${{productClass.price.toLocaleString('en-US')}}            
+            </div>
+        </div>    
+        
         <img :src="productImage" :alt="productImageDescription" :style="productImageStyle"/>
     </div>
-
-    <hr/>
     
-    <div v-for="(productClass, index) in productClasses" :key="index" class="row">
-        <div class="column">
-            {{productClass.name}}
-        </div>
-        <div class="column">
-            ${{productClass.price.toLocaleString('en-US')}}            
-        </div>
-    </div>
-
     <!-- TODO: Import Vue app -->
-    <script src="./index.js"></script>
     <script>
         app.mount('#app');
     </script>
