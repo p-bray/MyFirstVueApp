@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./assets/styles.css" />
     <!-- TODO: Import Vue.js core library -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-   <script src="./index.js"></script>
+    <script src="./index.js"></script>
 
 </head>
 
@@ -17,7 +17,8 @@
 
     <!-- TODO: Add information display -->
     <div id="app">
-        <!-- YOU CAN ONLY INTERACT WITH VUE IN THE DIV WITH ID app -->
+    <!-- YOU CAN ONLY INTERACT WITH VUE IN THE DIV WITH ID app -->
+    <!-- START APP -->
     
    
     
@@ -44,8 +45,8 @@
 
         <!-- Form -->
         <!-- we use v-show to only show this if the booking isn't done. this is accessed via the
-         booking.complete property -->
-        <form v-show="!booking.complete">
+         booking.completed property -->
+        <form v-show="!booking.completed">
             <h2>Book now!</h2>
             <div class="row">
                 <label for="product-cabin">Select class:</label>
@@ -71,7 +72,7 @@
         </form>
 
 
-
+    <!-- END APP -->
     </div>
     
     <!-- TODO: Import Vue app -->
