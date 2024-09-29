@@ -19,15 +19,13 @@
     <div id="app">
         <!-- YOU CAN ONLY INTERACT WITH VUE IN THE DIV WITH ID app -->
     
-    
-    
-    
+   
     
         <h2>{{productName}}</h2>
         <div>{{productDescription}}</div>
 
         <hr/>
-
+        <!-- Product description -->
         <div v-for="(productClass, index) of productClasses" :key="index" class="row">
             <div class="column">
                 {{productClass.name}}
@@ -44,19 +42,37 @@
         <img :src="productImage" :alt="productImageDescription" :style="productImageStyle"/>
         
 
+        <!-- Form -->
+        <!-- we use v-show to only show this if the booking isn't done. this is accessed via the
+         booking.complete property -->
+        <form v-show="!booking.complete">
+            <h2>Book now!</h2>
+            <div class="row">
+                <label for="product-cabin">Select class:</label>
+                <!-- So here, we are looking to try and updated the value for the booking object.
+                 the cabinIndex is just an int that represents the drop down options.  -->
+                <select id="product-cabin" v-model="booking.cabinIndex">
+                    <!-- Here, we use the v-for directive to iterate through the product.Cabins options. 
+                     the index is tracked in the value. -->
+                    <option v-for="(cabin, index) in product.cabins" :value="index">
+                        {{ cabin.name }} ${{ cabin.price.toLocaleString('en-US')}}
+                    </option>
+                </select>
+            </div>
+            <div class="row">
+                <label for="notes">Notes:</label>
+                <textarea v-model="booking.notes" rows="3"></textarea>
+            </div>
+            <div class="row">
+                <!--TODO: Add button later -->
+
+
+                <button class="button" type="button" @click="bookCabin">Book now!</button>
+            </div>
+        </form>
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
     </div>
     
     <!-- TODO: Import Vue app -->
