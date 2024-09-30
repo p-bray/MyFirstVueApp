@@ -54,5 +54,15 @@ const app = Vue.createApp({
             this.booking.completed = true;
             console.log(this.booking.completed);
         }
+    },
+    computed: {
+        bookingCabinDisplay() {
+            //construct a cabin: the cabin selected by the bookCabin method. 
+            const cabin = this.product.cabins[this.booking.cabinIndex];
+
+            //return a string with the cabin name, and price (we use the $ operator to escape the string to add a variable)
+            //THE BELOW STATEMENT DOES NOT USE QUOTES. IT USES THE ` character. 
+            return `${cabin.name}: $ ${cabin.price.toLocaleString('en-US')}`;
+        }
     }
 });
